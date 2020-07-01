@@ -8,6 +8,13 @@ The provided Kibana dashboards require a minimum version of 7.4.2. If you are us
 It is assumed you have ELK stack up and running. Use template from "logstash/conf.d" to create a new logstash pipeline to injest logs and store them in elasticsearch. Once logs are in index import files from "kibana" folder to create all necessary objects including index pattern, visualization and dashboards.
 ## Quick Start
 ### Deploying ELK Stack
+
+Likely need to increate memory to docker:
+```
+echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -w vm.max_map_count=262144
+```
+
 Use docker-compose to deploy your own ELK stack.
 ```
 $ docker-compose -f docker-compose.yaml up -d
