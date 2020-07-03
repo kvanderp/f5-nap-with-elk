@@ -1,0 +1,166 @@
+{
+    "policy": {
+        "name": "credit-app-high",
+        "description": "",
+        "template": {
+            "name": "POLICY_TEMPLATE_NGINX_BASE"
+        },
+        "applicationLanguage": "utf-8",
+        "enforcementMode": "blocking",
+        "blocking-settings": {
+            "violations": [
+                {
+                    "name": "VIOL_ASM_COOKIE_MODIFIED",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_BLACKLISTED_IP",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_COOKIE_EXPIRED",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_COOKIE_LENGTH",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_COOKIE_MALFORMED",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_COOKIE_MODIFIED",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_DATA_GUARD",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_ENCODING",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_EVASION",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_FILETYPE",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_HEADER_LENGTH",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_HEADER_METACHAR",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_HTTP_PROTOCOL",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_HTTP_RESPONSE_STATUS",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_JSON_FORMAT",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_JSON_MALFORMED",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_METHOD",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_POST_DATA_LENGTH",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_QUERY_STRING_LENGTH",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_REQUEST_LENGTH",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_REQUEST_MAX_LENGTH",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_URL_LENGTH",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_URL_METACHAR",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_XML_FORMAT",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_XML_MALFORMED",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_RATING_THREAT",
+                    "alarm": true,
+                    "block": true
+                },
+                {
+                    "name": "VIOL_RATING_NEED_EXAMINATION",
+                    "alarm": false,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_PARAMETER_MULTIPART_NULL_VALUE",
+                    "alarm": false,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_PARAMETER_NAME_METACHAR",
+                    "alarm": true,
+                    "block": false
+                },
+                {
+                    "name": "VIOL_PARAMETER_VALUE_METACHAR",
+                    "alarm": true,
+                    "block": false
+                }
+            ],
+            "http-protocols": []
+        }
+    }
+}
