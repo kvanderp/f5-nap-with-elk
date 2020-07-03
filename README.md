@@ -12,11 +12,14 @@ You will likely need to increate memory to docker:
 echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -w vm.max_map_count=262144
 ```
-build the nginx app protect container:
+
+### build the nginx app protect container
+add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 ```
 docker build --tag=nap .
 ```
-Bring up the entire stack:
+
+### Bring up the entire stack:
 ```
 $ docker-compose -f docker-compose.yaml up -d
 ```
