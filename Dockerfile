@@ -3,7 +3,7 @@ FROM centos:7.4.1708
 
 # Download certificate and key from the customer portal (https://cs.nginx.com)
 # and copy to the build context
-COPY nginx/nginx-repo.* /etc/ssl/nginx/
+COPY ssl/nginx-repo.* /etc/ssl/nginx/
 
 # Install prerequisite packages
 RUN yum -y install wget ca-certificates epel-release cron
