@@ -23,8 +23,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
     
 # Copy configuration files  
-COPY ssl/fullchain1.pem /etc/ssl/fullchain1.pem
-COPY ssl/privkey1.pem /etc/ssl/privkey1.pem
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/* /etc/nginx/
 COPY nginx/conf.d* /etc/nginx/conf.d
