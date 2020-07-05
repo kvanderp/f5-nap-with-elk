@@ -3,7 +3,7 @@
 Forked from <https://github.com/464d41/f5-waf-elk-dashboards>
 
 Option of either:
-a simple site that returns a few NGINX variables if the WAF doesn't block the request 
+a simple site that returns a few NGINX variables if the WAF doesn't block the request
 or
 nginx reverse proxy to the juice shop waf testing tool
 
@@ -12,7 +12,7 @@ Kibana listens on :81
 
 ## Deployingment
 
-You will likely need to increase memory to docker
+You will likely need to increase memory to docker:
 
 ```
 echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
