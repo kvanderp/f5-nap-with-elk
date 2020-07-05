@@ -7,7 +7,7 @@ Kibana listens on :81
 ## Quick Start
 ### Deploying ELK Stack
 
-You will likely need to increate memory to docker:
+You will likely need to increase memory to docker:
 ```
 echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -w vm.max_map_count=262144
@@ -21,5 +21,5 @@ docker build --tag=nap .
 
 ### Bring up the entire stack:
 ```
-$ docker-compose -f docker-compose.yaml up -d
+docker-compose -f docker-compose.yaml up -d
 ```
