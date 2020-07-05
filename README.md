@@ -5,9 +5,9 @@ Site runs on :80 (443 not used in this example, yet)
 Kibana listens on :81
 
 ## Quick Start
-### Deploying ELK Stack
+### Deploying ELK Stack:
 
-You will likely need to increase memory to docker:
+You will likely need to increase memory to docker
 ```
 echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -w vm.max_map_count=262144
@@ -19,7 +19,8 @@ add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 docker build --tag=nap .
 ```
 
-### Bring up the entire stack:
+### Create a shared network and bring up the stack:
 ```
+docker network create shared-net
 docker-compose -f docker-compose.yaml up -d
 ```
