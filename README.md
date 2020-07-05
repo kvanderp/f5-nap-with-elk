@@ -33,17 +33,12 @@ Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 docker build --tag=nap -f Dockerfile.simple-site .
 ```
 
-### or build the nginx app protect container for the juice shop
+### OR build the nginx app protect container and start the juice shop
 
 Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 
 ```
 docker build --tag=nap -f Dockerfile.juice-shop .
-```
-
-### Bring up your favorite insecure juice-shop app
-
-```
 docker run -d -p 3000:3000 --network=shared-net --name=juice-shop bkimminich/juice-shop
 ```
 
