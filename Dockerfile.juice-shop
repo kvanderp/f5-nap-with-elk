@@ -28,6 +28,7 @@ COPY nginx/nginx.conf /etc/nginx/
 COPY nginx/log-default.json /etc/nginx/
 COPY nginx/high-security-policy.json /etc/nginx/
 COPY nginx/conf.d/juice-shop.conf /etc/nginx/conf.d
+COPY nginx/conf.d/status_api.conf /etc/nginx/conf.d
 COPY nginx/entrypoint.sh  .
 
 EXPOSE 80

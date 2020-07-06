@@ -31,6 +31,7 @@ Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 
 ```
 docker build --tag=nap:simple-site -f Dockerfile.simple-site .
+docker-compose -f docker-compose-simple-site.yaml up
 ```
 
 ### OR build the nginx app protect container and start the juice shop
@@ -39,13 +40,14 @@ Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 
 ```
 docker build --tag=nap:juice-shop -f Dockerfile.juice-shop .
-docker-compose -f docker-compose-juice_shop.yaml up
+docker-compose -f docker-compose-juice-shop.yaml up
 ```
 
 ### Access the demo
 
 The site you are protecting will be availible on host:80
 Kibana will take a minute to spin up, then availible on host:81
+NGINX Plus dashboard is availible on host:8080
 Once Kibana is up, import the dashboards (note that jq is required):
 
 ```
