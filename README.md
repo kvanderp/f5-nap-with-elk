@@ -48,7 +48,6 @@ docker run -d -p 3000:3000 --network=shared-net --name=juice-shop bkimminich/jui
 docker-compose -f docker-compose.yaml up -d
 ```
 
-###
-Simple test on juice shop
+###Simple test on juice shop
 
 Navigate to the juice shop login page that is not protected on :3000 and use ' as the username with any password, then try it on :80 and note that the request it blocked by the WAF.
