@@ -30,7 +30,7 @@ docker network create shared-net
 Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 
 ```
-docker build --tag=nap -f Dockerfile.simple-site .
+docker build --tag=nap:simple-site -f Dockerfile.simple-site .
 ```
 
 ### OR build the nginx app protect container and start the juice shop
@@ -38,14 +38,17 @@ docker build --tag=nap -f Dockerfile.simple-site .
 Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 
 ```
-docker build --tag=nap -f Dockerfile.juice-shop .
-docker run -d -p 3000:3000 --network=shared-net --name=juice-shop bkimminich/juice-shop
+docker build --tag=nap:juice-shop -f Dockerfile.juice-shop .
+docker-compose -f docker-compose-juice_shop.yaml up
 ```
 
-### Bring up the stack
+###Access the demo
+The site you are protecting will be availible on host:80
+Kibana will take a minute to spin up, then availible on host:81
+Once Kibana is up, import the dashboards (note that jq is required):
 
 ```
-docker-compose -f docker-compose.yaml up -d
+sh kibana-dashboards-import.sh
 ```
 
 ###Simple test on juice shop

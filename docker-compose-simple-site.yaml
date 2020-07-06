@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  elk:
+    image: sebp/elk:780
+    restart: always
+    volumes:
+      - ./logstash/conf.d:/etc/logstash/conf.d:ro
+      - elk:/var/lib/elasticsearch
+    networks: 
+      shared-net:
+        aliases: 
+          - kibana
+          - logstash
+          - elasticsearch
+  nginx-app-protect:
+    image: nap:simple-site
+    restart: always
+    networks: 
+      shared-net:
+        aliases: 
+          - nginx
+    ports:
+      - "80:80" #app protect
+      - "81:81" #kibana
+      - "443:443"
+      - "8080:8080" #status api
+networks: 
+  shared-net:
+    external: true
+    name: shared-net
+volumes:
+  elk:
