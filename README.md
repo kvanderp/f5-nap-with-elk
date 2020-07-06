@@ -42,7 +42,8 @@ docker build --tag=nap:juice-shop -f Dockerfile.juice-shop .
 docker-compose -f docker-compose-juice_shop.yaml up
 ```
 
-###Access the demo
+### Access the demo
+
 The site you are protecting will be availible on host:80
 Kibana will take a minute to spin up, then availible on host:81
 Once Kibana is up, import the dashboards (note that jq is required):
@@ -51,6 +52,6 @@ Once Kibana is up, import the dashboards (note that jq is required):
 sh kibana-dashboards-import.sh
 ```
 
-###Simple test on juice shop
+### Simple test on juice shop
 
 Navigate to the juice shop login page that is not protected on :3000 and use ' as the username with any password, then try it on :80 and note that the request it blocked by the WAF.
