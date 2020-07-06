@@ -6,7 +6,7 @@ FROM centos:7.4.1708
 COPY ssl/nginx-repo.* /etc/ssl/nginx/
 
 # Install prerequisite packages
-RUN yum -y install wget ca-certificates epel-release cron
+RUN yum -y install wget ca-certificates epel-release
 
 # Add NGINX Plus repo to yum
 RUN wget -P /etc/yum.repos.d https://cs.nginx.com/static/files/nginx-plus-7.repo
