@@ -19,17 +19,15 @@ echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -w vm.max_map_count=262144
 ```
 
-### Build the nginx app protect container for the simple site
+Add your nginx-repo.crt and nginx-repo.key to the ssl directory
 
-Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
+### Build the nginx app protect container for the simple site
 
 ```
 docker-compose -f docker-compose-simple-site.yaml up
 ```
 
 ### OR build the nginx app protect container and start the juice shop
-
-Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 
 ```
 docker-compose -f docker-compose-juice-shop.yaml up
