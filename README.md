@@ -35,10 +35,10 @@ docker-compose -f docker-compose-juice-shop.yaml up
 
 ### Access the demo
 
-The site you are protecting will be availible on host:80
-Kibana will take a minute to spin up, then availible on host:81
-NGINX Plus dashboard is availible on host:8080
-Once Kibana is up, import the dashboards (note that jq is required):
+- The site you are protecting will be availible on host:80
+- Kibana will take a minute to spin up, then availible on host:81
+- NGINX Plus dashboard is availible on host:8080
+- Once Kibana is up, import the dashboards (note that jq is required):
 
 ```
 sh kibana-dashboards-import.sh
