@@ -13,7 +13,9 @@ services:
           - logstash
           - elasticsearch
   nginx-app-protect-simple-site:
-    image: nap:simple-site
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.simple-site
     restart: always
     networks: 
       shared-net:
@@ -26,7 +28,7 @@ services:
       - "8080:8080" #status api
 networks: 
   shared-net:
-    external: true
+    external: false
     name: shared-net
 volumes:
   elk:

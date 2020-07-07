@@ -13,7 +13,9 @@ services:
           - logstash
           - elasticsearch
   nginx-app-protect-juice-shop:
-    image: nap:juice-shop
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.juice-shop
     restart: always
     networks: 
       shared-net:
@@ -35,7 +37,7 @@ services:
       - "3000:3000" 
 networks: 
   shared-net:
-    external: true
+    external: false
     name: shared-net
 volumes:
   elk:

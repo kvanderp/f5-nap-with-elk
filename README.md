@@ -19,18 +19,11 @@ echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -w vm.max_map_count=262144
 ```
 
-We use a shared docker network for the conainers, you'll need to create it:
-
-```
-docker network create shared-net
-```
-
 ### Build the nginx app protect container for the simple site
 
 Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 
 ```
-docker build --tag=nap:simple-site -f Dockerfile.simple-site .
 docker-compose -f docker-compose-simple-site.yaml up
 ```
 
@@ -39,7 +32,6 @@ docker-compose -f docker-compose-simple-site.yaml up
 Add your nginx-repo.crt and nginx-repo.key to the ssl directory then:
 
 ```
-docker build --tag=nap:juice-shop -f Dockerfile.juice-shop .
 docker-compose -f docker-compose-juice-shop.yaml up
 ```
 
