@@ -5,10 +5,11 @@ Forked from <https://github.com/464d41/f5-waf-elk-dashboards>
 Option of either:
 a simple site that returns a few NGINX variables if the WAF doesn't block the request
 or
-nginx reverse proxy to the juice shop waf testing tool
+nginx reverse proxy to the juice shop intentionally insecure app.
 
 Site runs on :80 (443 not used in this example, yet)
 Kibana listens on :81
+
 
 ## Deployingment
 
