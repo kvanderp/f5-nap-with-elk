@@ -1,2 +1,2 @@
-ssl/nginx-repo.key
-ssl/nginx-repo.crt
+nginx/ssl/nginx-repo.key
+nginx/ssl/nginx-repo.crt
