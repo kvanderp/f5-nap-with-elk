@@ -28,6 +28,7 @@ COPY nginx.conf /etc/nginx/
 COPY log-default.json /etc/nginx/
 COPY high-security-policy.json /etc/nginx/
 COPY conf.d/juice-shop.conf /etc/nginx/conf.d
+COPY conf.d/kibana.conf /etc/nginx/conf.d
 COPY conf.d/status_api.conf /etc/nginx/conf.d
 COPY entrypoint.sh  .
 
