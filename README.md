@@ -20,6 +20,12 @@ echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -w vm.max_map_count=262144
 ```
 
+On WSL, run this (thanks @gallarda!)
+
+```
+wsl -d docker-desktop sysctl -w vm.max_map_count=262144
+```
+
 Add your nginx-repo.crt and nginx-repo.key to the ssl directory
 
 ### Build the nginx app protect container for the simple site
