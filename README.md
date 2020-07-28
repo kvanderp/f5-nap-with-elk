@@ -11,7 +11,7 @@ Site runs on :80 (443 not used in this example, yet)
 Kibana listens on :81
 
 
-## Deployingment
+## Deploying
 
 You will likely need to increase memory to docker:
 
