@@ -11,13 +11,19 @@ Site runs on :80 (443 not used in this example, yet)
 Kibana listens on :81
 
 
-## Deployingment
+## Deploying
 
 You will likely need to increase memory to docker:
 
 ```
 echo "vm.max_map_count=262144" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -w vm.max_map_count=262144
+```
+
+On WSL, run this (thanks @gallarda!)
+
+```
+wsl -d docker-desktop sysctl -w vm.max_map_count=262144
 ```
 
 Add your nginx-repo.crt and nginx-repo.key to the ssl directory
