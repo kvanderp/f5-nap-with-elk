@@ -1,7 +1,8 @@
-version: "3.6"
+version: "2.4"
 services:
   elk:
     image: sebp/elk:780
+    mem_limit: 4g
     restart: always
     volumes:
       - ./logstash/conf.d:/etc/logstash/conf.d:ro
