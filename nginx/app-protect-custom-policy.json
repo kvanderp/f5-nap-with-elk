@@ -1,6 +1,6 @@
 {
     "policy": {
-        "name": "credit-app-high",
+        "name": "NginxStrictPolicy",
         "description": "",
         "template": {
             "name": "POLICY_TEMPLATE_NGINX_BASE"
@@ -137,7 +137,7 @@
                 {
                     "name": "VIOL_RATING_THREAT",
                     "alarm": true,
-                    "block": true
+                    "block": false
                 },
                 {
                     "name": "VIOL_RATING_NEED_EXAMINATION",
