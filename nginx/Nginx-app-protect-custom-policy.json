@@ -1,166 +1,249 @@
 {
-    "policy": {
-        "name": "NginxStrictPolicy",
-        "description": "",
-        "template": {
-            "name": "POLICY_TEMPLATE_NGINX_BASE"
-        },
-        "applicationLanguage": "utf-8",
-        "enforcementMode": "blocking",
-        "blocking-settings": {
-            "violations": [
-                {
-                    "name": "VIOL_ASM_COOKIE_MODIFIED",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_BLACKLISTED_IP",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_COOKIE_EXPIRED",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_COOKIE_LENGTH",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_COOKIE_MALFORMED",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_COOKIE_MODIFIED",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_DATA_GUARD",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_ENCODING",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_EVASION",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_FILETYPE",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_HEADER_LENGTH",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_HEADER_METACHAR",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_HTTP_PROTOCOL",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_HTTP_RESPONSE_STATUS",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_JSON_FORMAT",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_JSON_MALFORMED",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_METHOD",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_POST_DATA_LENGTH",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_QUERY_STRING_LENGTH",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_REQUEST_LENGTH",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_REQUEST_MAX_LENGTH",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_URL_LENGTH",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_URL_METACHAR",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_XML_FORMAT",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_XML_MALFORMED",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_RATING_THREAT",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_RATING_NEED_EXAMINATION",
-                    "alarm": false,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_PARAMETER_MULTIPART_NULL_VALUE",
-                    "alarm": false,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_PARAMETER_NAME_METACHAR",
-                    "alarm": true,
-                    "block": false
-                },
-                {
-                    "name": "VIOL_PARAMETER_VALUE_METACHAR",
-                    "alarm": true,
-                    "block": false
-                }
-            ],
-            "http-protocols": []
-        }
+    "policy" : {
+       "name" : "app_protect_custom_policy",
+       "description" : "Custom App Protect Policy, blocks everything",
+       "template": {
+         "name": "POLICY_TEMPLATE_NGINX_BASE"
+       },
+       "blocking-settings" : {
+          "evasions" : [
+             {
+                "description" : "Multiple decoding",
+                "maxDecodingPasses" : 2
+             }
+          ],
+          "http-protocols" : [
+             {
+                "description" : "Check maximum number of headers",
+                "maxHeaders" : 20
+             },
+             {
+                "description" : "Body in GET or HEAD requests",
+                "enabled" : true
+             },
+             {
+                "description" : "POST request with Content-Length: 0",
+                "enabled" : true
+             }
+          ],
+          "violations" : [
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Violation Rating Need Examination detected",
+                "name" : "VIOL_RATING_NEED_EXAMINATION"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Illegal HTTP status in response",
+                "name" : "VIOL_HTTP_RESPONSE_STATUS"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Modified ASM cookie",
+                "name" : "VIOL_ASM_COOKIE_MODIFIED"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Modified domain cookie(s)",
+                "name" : "VIOL_COOKIE_MODIFIED"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Illegal file type",
+                "name" : "VIOL_FILETYPE"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Illegal method",
+                "name" : "VIOL_METHOD"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Null in multi-part parameter value",
+                "name" : "VIOL_PARAMETER_MULTIPART_NULL_VALUE"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Failed to convert character",
+                "name" : "VIOL_ENCODING"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Evasion technique detected",
+                "name" : "VIOL_EVASION"
+             },
+             {
+                "alarm" : true,
+                "block" : true,
+                "description" : "Request length exceeds defined buffer size",
+                "name" : "VIOL_REQUEST_MAX_LENGTH"
+             }            
+          ]
+       },
+       "cookies" : [
+          {
+             "name" : "*",
+             "type" : "wildcard",
+             "enforcementType" : "allow",
+             "insertSameSiteAttribute" : "lax",
+             "securedOverHttpsConnection" : true
+          }
+       ],
+       "data-guard" : {
+          "enabled" : true,
+          "creditCardNumbers" : true,
+          "usSocialSecurityNumbers" : true,
+          "enforcementMode" : "ignore-urls-in-list",
+          "maskData" : true
+       },
+       "filetypes" : [
+          {
+             "name" : "*",
+             "type" : "wildcard",
+             "allowed" : true,
+             "responseCheck" : true
+          }
+       ],
+       "json-profiles" : [
+          {
+             "name" : "Default",
+             "defenseAttributes" : {
+                "tolerateJSONParsingWarnings" : false,
+                "maximumTotalLengthOfJSONData": "10000"               
+             },
+             "description" : "Default JSON Profile",
+             "handleJsonValuesAsParameters" : false
+          }
+       ],
+       "signature-sets" : [
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "CVE Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Buffer Overflow Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Authentication/Authorization Attack Signatures"
+          },
+          {
+             "alarm" : true,
+             "block" : true,
+             "name" : "High Accuracy Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "SQL Injection Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Cross Site Scripting Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "OS Command Injection Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "HTTP Response Splitting Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Path Traversal Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "XPath Injection Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Command Execution Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Server Side Code Injection Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Information Leakage Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Directory Indexing Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Remote File Include Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Predictable Resource Location Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Other Application Attacks Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "High Accuracy Detection Evasion Signatures"
+          },
+          {
+             "alarm" : true,
+             "block": true,
+             "name" : "Generic Detection Signatures (High/Medium Accuracy)"
+          }
+       ],
+       "xml-profiles" : [
+          {
+             "name" : "Default",
+             "defenseAttributes" : {
+                "allowCDATA" : false,
+                "allowDTDs" : false,
+                "allowExternalReferences" : false,
+                "allowProcessingInstructions" : true,
+                "maximumAttributeValueLength" : 1024,
+                "maximumAttributesPerElement" : 16,
+                "maximumChildrenPerElement" : 1024,
+                "maximumDocumentDepth" : 32,
+                "maximumDocumentSize" : 1024000,
+                "maximumElements" : 65536,
+                "maximumNSDeclarations" : 64,
+                "maximumNameLength" : 256,
+                "maximumNamespaceLength" : 256,
+                "tolerateCloseTagShorthand" : false,
+                "tolerateLeadingWhiteSpace" : false,
+                "tolerateNumericNames" : false
+             }
+          }
+       ]
     }
-}
+ }
+ 
