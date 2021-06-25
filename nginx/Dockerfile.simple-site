@@ -15,8 +15,8 @@ RUN wget -P /etc/yum.repos.d https://cs.nginx.com/static/files/app-protect-signa
 # Install NGINX App Protect
 RUN yum -y install app-protect app-protect-attack-signatures app-protect-threat-campaigns \
     && yum clean all \
-    && rm -rf /var/cache/yum 
-#    && rm -rf /etc/ssl/nginx #leave keys for getting signature updates
+    && rm -rf /var/cache/yum \
+    && rm -rf /etc/ssl/nginx #leave keys for getting signature updates
 
 
 # Forward request logs to Docker log collector
