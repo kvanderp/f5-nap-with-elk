@@ -1,5 +1,7 @@
 # All in one NGINX App Protect with an ELK stack
 
+Make SURE to update docker-compose to version 1.28.5 or higher
+
 Forked from <https://github.com/464d41/f5-waf-elk-dashboards>
 
 Option of either:
